@@ -17,7 +17,7 @@
                 "action": "openExternally",
                 "pattern": "\\bNow listening on:\\s+(https?://\\S+)",
                 "uriFormat": "%s/swagger"
-            },
+            }
         },
         {
             "name": "Basket API Launch",
@@ -32,7 +32,7 @@
                 "action": "openExternally",
                 "pattern": "\\bNow listening on:\\s+(https?://\\S+)",
                 "uriFormat": "%s/swagger"
-            },
+            }
         },
         {
             "name": "Discount API Launch",
@@ -47,7 +47,7 @@
                 "action": "openExternally",
                 "pattern": "\\bNow listening on:\\s+(https?://\\S+)",
                 "uriFormat": "%s/swagger"
-            },
+            }
         },
         {
             "name": "Discount GRPC Launch",
@@ -57,12 +57,41 @@
             "program": "${workspaceFolder}/src/Services/Discount/Discount.Grpc/bin/Debug/net5.0/Discount.Grpc.dll",
             "args": [],
             "cwd": "${workspaceFolder}/src/Services/Discount/Discount.Grpc",
+            "stopAtEntry": false
+        },
+        {
+            "name": ".NET Core Launch (web)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/src/Services/Discount/Discount.Grpc/bin/Debug/net5.0/Discount.Grpc.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/src/Services/Discount/Discount.Grpc",
             "stopAtEntry": false,
             "serverReadyAction": {
                 "action": "openExternally",
                 "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
             },
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            },
+            "sourceFileMap": {
+                "/Views": "${workspaceFolder}/Views"
+            }
+        },
+        {
+            "name": ".NET Core Attach",
+            "type": "coreclr",
+            "request": "attach"
+        },
+        {
+            "name": "Docker .NET Core Launch",
+            "type": "docker",
+            "request": "launch",
+            "preLaunchTask": "docker-run: debug",
+            "netCore": {
+                "appProject": "${workspaceFolder}/src/Services/Discount/Discount.Grpc/Discount.Grpc.csproj"
+            }
         }
-
     ]
 }
