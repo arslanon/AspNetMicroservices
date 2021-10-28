@@ -8,7 +8,7 @@
             "name": "Catalog API Launch",
             "type": "coreclr",
             "request": "launch",
-            "preLaunchTask": "watch-catalog_api",
+            "preLaunchTask": "build-catalog_api",
             "program": "${workspaceFolder}/src/Services/Catalog/Catalog.API/bin/Debug/net5.0/Catalog.API.dll",
             "args": [],
             "cwd": "${workspaceFolder}/src/Services/Catalog/Catalog.API",
@@ -23,7 +23,7 @@
             "name": "Basket API Launch",
             "type": "coreclr",
             "request": "launch",
-            "preLaunchTask": "watch-basket_api",
+            "preLaunchTask": "build-basket_api",
             "program": "${workspaceFolder}/src/Services/Basket/Basket.API/bin/Debug/net5.0/Basket.API.dll",
             "args": [],
             "cwd": "${workspaceFolder}/src/Services/Basket/Basket.API",
@@ -38,7 +38,7 @@
             "name": "Discount API Launch",
             "type": "coreclr",
             "request": "launch",
-            "preLaunchTask": "watch-discount_api",
+            "preLaunchTask": "build-discount_api",
             "program": "${workspaceFolder}/src/Services/Discount/Discount.API/bin/Debug/net5.0/Discount.API.dll",
             "args": [],
             "cwd": "${workspaceFolder}/src/Services/Discount/Discount.API",
@@ -53,20 +53,35 @@
             "name": "Discount GRPC Launch",
             "type": "coreclr",
             "request": "launch",
-            "preLaunchTask": "watch-discount_grpc",
+            "preLaunchTask": "build-discount_grpc",
             "program": "${workspaceFolder}/src/Services/Discount/Discount.Grpc/bin/Debug/net5.0/Discount.Grpc.dll",
             "args": [],
             "cwd": "${workspaceFolder}/src/Services/Discount/Discount.Grpc",
             "stopAtEntry": false
         },
         {
+            "name": "Ordering API Launch",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build-ordering_api",
+            "program": "${workspaceFolder}/src/Services/Ordering/Ordering.API/bin/Debug/net5.0/Ordering.API.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/src/Services/Ordering/Ordering.API",
+            "stopAtEntry": false,
+            "serverReadyAction": {
+                "action": "openExternally",
+                "pattern": "\\bNow listening on:\\s+(https?://\\S+)",
+                "uriFormat": "%s/swagger"
+            }
+        },
+        {
             "name": ".NET Core Launch (web)",
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            "program": "${workspaceFolder}/src/Services/Discount/Discount.Grpc/bin/Debug/net5.0/Discount.Grpc.dll",
+            "program": "${workspaceFolder}/src/Services/Ordering/Ordering.API/bin/Debug/net5.0/Ordering.API.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/src/Services/Discount/Discount.Grpc",
+            "cwd": "${workspaceFolder}/src/Services/Ordering/Ordering.API",
             "stopAtEntry": false,
             "serverReadyAction": {
                 "action": "openExternally",
@@ -90,7 +105,7 @@
             "request": "launch",
             "preLaunchTask": "docker-run: debug",
             "netCore": {
-                "appProject": "${workspaceFolder}/src/Services/Discount/Discount.Grpc/Discount.Grpc.csproj"
+                "appProject": "${workspaceFolder}/src/Services/Ordering/Ordering.API/Ordering.API.csproj"
             }
         }
     ]

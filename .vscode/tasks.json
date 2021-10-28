@@ -4,7 +4,7 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "watch-catalog_api",
+            "label": "build-catalog_api",
             "command": "dotnet",
             "type": "process",
             "args": [
@@ -16,7 +16,7 @@
             "problemMatcher": "$msCompile"
         },
         {
-            "label": "watch-basket_api",
+            "label": "build-basket_api",
             "command": "dotnet",
             "type": "process",
             "args": [
@@ -28,7 +28,7 @@
             "problemMatcher": "$msCompile"
         },
         {
-            "label": "watch-discount_api",
+            "label": "build-discount_api",
             "command": "dotnet",
             "type": "process",
             "args": [
@@ -40,12 +40,24 @@
             "problemMatcher": "$msCompile"
         },
         {
-            "label": "watch-discount_grpc",
+            "label": "build-discount_grpc",
             "command": "dotnet",
             "type": "process",
             "args": [
                 "build",
                 "${workspaceFolder}/src/Services/Discount/Discount.Grpc/Discount.Grpc.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "build-ordering_api",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/src/Services/Ordering/Ordering.API/Ordering.API.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -57,7 +69,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/src/Services/Discount/Discount.Grpc/Discount.Grpc.csproj",
+                "${workspaceFolder}/src/Services/Ordering/Ordering.API/Ordering.API.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -69,7 +81,7 @@
             "type": "process",
             "args": [
                 "publish",
-                "${workspaceFolder}/src/Services/Discount/Discount.Grpc/Discount.Grpc.csproj",
+                "${workspaceFolder}/src/Services/Ordering/Ordering.API/Ordering.API.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -82,7 +94,7 @@
             "args": [
                 "watch",
                 "run",
-                "${workspaceFolder}/src/Services/Discount/Discount.Grpc/Discount.Grpc.csproj",
+                "${workspaceFolder}/src/Services/Ordering/Ordering.API/Ordering.API.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -97,12 +109,12 @@
             "dockerBuild": {
                 "tag": "aspnetmicroservices:dev",
                 "target": "base",
-                "dockerfile": "${workspaceFolder}/src/Services/Discount/Discount.Grpc/Dockerfile",
+                "dockerfile": "${workspaceFolder}/src/Services/Ordering/Ordering.API/Dockerfile",
                 "context": "${workspaceFolder}",
                 "pull": true
             },
             "netCore": {
-                "appProject": "${workspaceFolder}/src/Services/Discount/Discount.Grpc/Discount.Grpc.csproj"
+                "appProject": "${workspaceFolder}/src/Services/Ordering/Ordering.API/Ordering.API.csproj"
             }
         },
         {
@@ -113,12 +125,12 @@
             ],
             "dockerBuild": {
                 "tag": "aspnetmicroservices:latest",
-                "dockerfile": "${workspaceFolder}/src/Services/Discount/Discount.Grpc/Dockerfile",
+                "dockerfile": "${workspaceFolder}/src/Services/Ordering/Ordering.API/Dockerfile",
                 "context": "${workspaceFolder}",
                 "pull": true
             },
             "netCore": {
-                "appProject": "${workspaceFolder}/src/Services/Discount/Discount.Grpc/Discount.Grpc.csproj"
+                "appProject": "${workspaceFolder}/src/Services/Ordering/Ordering.API/Ordering.API.csproj"
             }
         },
         {
@@ -129,8 +141,9 @@
             ],
             "dockerRun": {},
             "netCore": {
-                "appProject": "${workspaceFolder}/src/Services/Discount/Discount.Grpc/Discount.Grpc.csproj",
-                "enableDebugging": true
+                "appProject": "${workspaceFolder}/src/Services/Ordering/Ordering.API/Ordering.API.csproj",
+                "enableDebugging": true,
+                "configureSsl": false
             }
         },
         {
@@ -141,7 +154,7 @@
             ],
             "dockerRun": {},
             "netCore": {
-                "appProject": "${workspaceFolder}/src/Services/Discount/Discount.Grpc/Discount.Grpc.csproj"
+                "appProject": "${workspaceFolder}/src/Services/Ordering/Ordering.API/Ordering.API.csproj"
             }
         }
     ]
