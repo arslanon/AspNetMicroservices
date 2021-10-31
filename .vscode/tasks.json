@@ -75,5 +75,17 @@
             ],
             "problemMatcher": "$msCompile"
         },
+        {
+            "label": "build-shopping_aggregator",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/src/ApiGateways/Shopping.Aggregator/Shopping.Aggregator.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "problemMatcher": "$msCompile"
+        },
     ]
 }

@@ -88,5 +88,20 @@
                 "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
             }
         },
+        {
+            "name": "Shopping Aggregator Launch",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build-shopping_aggregator",
+            "program": "${workspaceFolder}/src/ApiGateways/Shopping.Aggregator/bin/Debug/net5.0/Shopping.Aggregator.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/src/ApiGateways/Shopping.Aggregator",
+            "stopAtEntry": false,
+            "serverReadyAction": {
+                "action": "openExternally",
+                "pattern": "\\bNow listening on:\\s+(https?://\\S+)",
+                "uriFormat": "%s/swagger"
+            }
+        },
     ]
 }
